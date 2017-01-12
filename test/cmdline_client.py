@@ -1,5 +1,5 @@
 import argparse
-import unwired
+import unwiredlabs
 
 parser = argparse.ArgumentParser(description='Make a location request against the unwiredlabs location API')
 parser.add_argument(
@@ -68,7 +68,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-request = unwired.UnwiredRequest()
+request = unwiredlabs.UnwiredRequest()
 
 if args.wifi:
 	for wifi in args.wifi:
@@ -106,7 +106,7 @@ if args.cdma:
 
 print('Performing request:', str(request))
 
-connection = unwired.UnwiredConnection(key=args.key[0])
+connection = unwiredlabs.UnwiredConnection(key=args.key[0])
 response = connection.performRequest(request)
 if response.status != 'Ok':
 	print('Error:', response.status)

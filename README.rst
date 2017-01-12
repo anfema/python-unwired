@@ -8,24 +8,24 @@ Installation
 
 Just install with ``pip``::
 
-	pip install python-unwired
+	pip install unwiredlabs
 
 Usage
 -----
 
 Python example::
 
-	import unwired
+	import unwiredlabs
 
 	key = 'ABCDEF1234567890'  # from the API console
 
 	bssid = 'ab:cd:ef:12:34:56'
 	rssi = -60
 
-	request = unwired.UnwiredRequest()
+	request = unwiredlabs.UnwiredRequest()
 	request.addAccessPoint(bssid, rssi)
 
-	connection = unwired.UnwiredConnection(key=key)
+	connection = unwiredlabs.UnwiredConnection(key=key)
 	response = connection.performRequest(request)
 
 	if response.status != 'Ok':
