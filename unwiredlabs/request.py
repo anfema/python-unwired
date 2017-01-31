@@ -205,6 +205,8 @@ class UnwiredRequest:
 			raise RuntimeError('No API key set')
 
 		result['token'] = self.key
+		if self.device_id:
+			result['id'] = self.device_id
 
 		# radio type
 		if len(self.gsmTowers)  > 0 and len(self.umtsTowers) == 0 and len(self.lteTowers) == 0 and len(self.cdmaTowers) == 0:
