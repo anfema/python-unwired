@@ -64,13 +64,13 @@ class UnwiredRequest:
 		:param mnc: mobile network code, may be skipped if set on request initialization
 		"""
 
-		if not self.mcc and not mcc:
+		if self.mcc is None and mcc is None:
 			raise RuntimeError('Either set mcc on initialization or provide it when adding a cell tower')
-		if not self.mnc and not mnc:
+		if self.mnc is None and mnc is None:
 			raise RuntimeError('Either set mcc on initialization or provide it when adding a cell tower')
-		if not mcc:
+		if mcc is None:
 			mcc = self.mcc
-		if not mnc:
+		if mnc is None:
 			mnc = self.mnc
 
 		self.gsmTowers.append({
@@ -92,13 +92,13 @@ class UnwiredRequest:
 		:param mnc: mobile network code, may be skipped if set on request initialization
 		"""
 
-		if not self.mcc and not mcc:
+		if self.mcc is None and mcc is None:
 			raise RuntimeError('Either set mcc on initialization or provide it when adding a cell tower')
-		if not self.mnc and not mnc:
+		if self.mnc is None and mnc is None:
 			raise RuntimeError('Either set mcc on initialization or provide it when adding a cell tower')
-		if not mcc:
+		if mcc is None:
 			mcc = self.mcc
-		if not mnc:
+		if mnc is None:
 			mnc = self.mnc
 
 		self.lteTowers.append({
@@ -120,13 +120,13 @@ class UnwiredRequest:
 		:param mnc: mobile network code, may be skipped if set on request initialization
 		"""
 
-		if not self.mcc and not mcc:
+		if self.mcc is None and mcc is None:
 			raise RuntimeError('Either set mcc on initialization or provide it when adding a cell tower')
-		if not self.mnc and not mnc:
+		if self.mnc is None and mnc is None:
 			raise RuntimeError('Either set mcc on initialization or provide it when adding a cell tower')
-		if not mcc:
+		if mcc is None:
 			mcc = self.mcc
-		if not mnc:
+		if mnc is None:
 			mnc = self.mnc
 
 		self.cdmaTowers.append({
@@ -148,13 +148,13 @@ class UnwiredRequest:
 		:param mnc: mobile network code, may be skipped if set on request initialization
 		"""
 
-		if not self.mcc and not mcc:
+		if self.mcc is None and mcc is None:
 			raise RuntimeError('Either set mcc on initialization or provide it when adding a cell tower')
-		if not self.mnc and not mnc:
+		if self.mnc is None and mnc is None:
 			raise RuntimeError('Either set mcc on initialization or provide it when adding a cell tower')
-		if not mcc:
+		if mcc is None:
 			mcc = self.mcc
-		if not mnc:
+		if mnc is None:
 			mnc = self.mnc
 
 		self.umtsTowers.append({
