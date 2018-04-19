@@ -40,7 +40,7 @@ In the ``test`` directory you'll find a command line client to test if everythin
 
 	$ python cmdline_client.py --help
 	usage: cmdline_client.py [-h] -k KEY [-w WIFI] [-g GPS] [-c CELL]
-							 [-l LTE] [-u UMTS] [-m CDMA]
+							 [-l LTE] [-u UMTS] [-m CDMA] [-a]
 
 	Make a location request against the unwiredlabs location API
 
@@ -54,3 +54,4 @@ In the ``test`` directory you'll find a command line client to test if everythin
 	  -l LTE, --lte LTE     LTE Celltower information (format: MCC,MNC,LAC,CellID@RSSI)
 	  -u UMTS, --umts UMTS  UMTS (3G) Celltower information (format: MCC,MNC,LAC,CellID@RSSI)
 	  -m CDMA, --cdma CDMA  CDMA/EVDO Celltower information (format: MCC,MNC,LAC,CellID@RSSI)
+	  -a, --address         Fetch address info in addition to coordinates
