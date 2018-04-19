@@ -34,6 +34,7 @@ class UnwiredResponse:
 		self.hpe = None
 		self.date = None
 		self.balance = None
+		self.address = None
 		self.deserialize()
 
 	@property
@@ -63,6 +64,6 @@ class UnwiredResponse:
 			self.lon = self.data['lon']
 			self.hpe = self.data['accuracy']
 			self.balance = self.data['balance']
+			self.address = self.data.get('address', None)
 		else:
 			self.status = self.data['message']
-

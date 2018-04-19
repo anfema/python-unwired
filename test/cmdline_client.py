@@ -66,9 +66,17 @@ parser.add_argument(
     help='CDMA/EVDO Celltower information (format: MCC,MNC,LAC,CellID@RSSI)'
 )
 
+parser.add_argument(
+	'-a', '--address',
+	dest='address',
+	action='store_const',
+	const=True,
+	default=False,
+    help='Fetch address info in addition to coordinates'
+)
 args = parser.parse_args()
 
-request = unwiredlabs.UnwiredRequest()
+request = unwiredlabs.UnwiredRequest(fetch_address=args.address)
 
 if args.wifi:
 	for wifi in args.wifi:
@@ -112,3 +120,5 @@ if response.status != 'Ok':
 	print('Error:', response.status)
 else:
 	print('Response: ', response.coordinate, 'deviation', response.hpe, 'meters')
+	if args.address:
+		print('Address: ', response.address)

@@ -10,7 +10,7 @@ class UnwiredRequest:
 	# Public API
 	#
 
-	def __init__(self, device_id=None, key=None, mcc=None, mnc=None):
+	def __init__(self, device_id=None, key=None, mcc=None, mnc=None, fetch_address=False):
 		"""
 		Initialize an empty request
 
@@ -18,6 +18,7 @@ class UnwiredRequest:
 		:param key: API key, may be skipped if set in ``UnwiredConnection``
 		:param mcc: Mobile country code of the GSM Network, optional, shortcut if you want to skip it on adding Celltowers
 		:param mnc: Mobile network code of the GSM Network, optional, shortcut if you want to skip it on adding Celltowers
+		:param fetch_address: Set to ``true`` to fetch an address string with the response
 		"""
 
 		self.device_id = device_id
@@ -30,6 +31,7 @@ class UnwiredRequest:
 		self.mcc = mcc
 		self.mnc = mnc
 		self.key = key
+		self.fetch_address = fetch_address
 
 	def __str__(self):
 		return '<UnwiredRequest: {wifi} WIFI APs, {tower} cell towers{gps}>'.format(
@@ -219,7 +221,7 @@ class UnwiredRequest:
 			result['radio'] = 'cdma'
 
 		result['cells'] = self.serializeCellTower()
-		result['address'] = 0
+		result['address'] = 1 if self.fetch_address else 0
 		result['wifi'] = self.serializeAP()
 		result['fallbacks'] = ['lacf', 'scf']
 		# result['ip'] = self.ip
