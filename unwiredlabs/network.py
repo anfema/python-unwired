@@ -11,10 +11,11 @@ class UnwiredConnection:
 	while initializing this
 	"""
 
-	def __init__(self, server='eu1.unwiredlabs.com', key=None, contribute_key=None, contribute_sandbox=True):
+	def __init__(self, server='eu1.unwiredlabs.com', key=None, contribute_key=None, contribute_sandbox=True, timeout=10):
 		self.session = requests.Session()
 		self.server = server
 		self.key = key
+		self.timeout = timeout
 		self.contribute_key = contribute_key
 		self.contribute_sandbox = contribute_sandbox
 
@@ -37,7 +38,7 @@ class UnwiredConnection:
 			json=request.serialize(key=self.key)
 		)
 		prep = self.session.prepare_request(request)
-		response = self.session.send(prep)
+		response = self.session.send(prep, timeout=self.timeout)
 		return UnwiredResponse(response)
 
 	def performContributeRequest(self, request):
@@ -69,4 +70,3 @@ class UnwiredConnection:
 		prep = self.session.prepare_request(request)
 		response = self.session.send(prep)
 		return response.status_code
-
